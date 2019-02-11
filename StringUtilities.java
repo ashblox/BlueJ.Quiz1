@@ -23,7 +23,7 @@ public class StringUtilities {
      */
     public String reverse(String valueToBeReversed) {
         String reverse = "";
-        for (int i = valueToBeReversed.length() - 1; i <= 0; i--) {
+        for (int i = (valueToBeReversed.length() - 1); i >= 0; i--) {
             reverse += valueToBeReversed.charAt(i);
         }
         return reverse;
@@ -34,7 +34,13 @@ public class StringUtilities {
      * @return middle character of `word`
      */
     public Character getMiddleCharacter(String word) {
-        return null;
+        int middlePosition = 0;
+        if (word.length() % 2 != 0) {
+            middlePosition = Math.round(word.length() / 2);
+        } else {
+            System.out.println("The word has an even number of characters.");;
+        }
+        return word.charAt(middlePosition);
     }
 
     /**
@@ -43,7 +49,13 @@ public class StringUtilities {
      * @return `value` with char of value `charToRemove` removed
      */
     public String removeCharacter(String value, Character charToRemove) {
-        return null;
+        String characterRemoved = "";
+        for (int i = 0; i < value.length(); i++){
+            if (value.charAt(i) != charToRemove) {
+                characterRemoved += value.charAt(i);
+            }
+        }
+        return characterRemoved;
     }
 
     /**
@@ -51,6 +63,7 @@ public class StringUtilities {
      * @return last `word` in sentence
      */
     public String getLastWord(String sentence) {
-        return null;
+        String [] wordsInSentence = sentence.split(" ");
+        return wordsInSentence[wordsInSentence.length - 1];
     }
 }
