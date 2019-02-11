@@ -26,7 +26,12 @@ public class LoopFun
        * @return Upper case string of the first letter of each word
        */
       public String acronym(String phrase) {
-          return null;
+          String [] words = phrase.split(" ");
+          String acronym = "";
+          for (int i = 0; i < words.length; i++) {
+              acronym += words[i].charAt(0);
+          }
+          return acronym.toUpperCase();
       }
 
       /**
@@ -42,6 +47,21 @@ public class LoopFun
        * @return the encrypted string by shifting each character by three character
        */
       public String encrypt(String word) {
-          return null;
+          String encryptedWord = "";
+          for (int i = 0; i < word.length(); i++) {
+              if (word.charAt(i) != ' ') {
+                  int ascii = (int)word.charAt(i);
+                  if (ascii > 119) {
+                      ascii -= 23;
+                  } else {
+                      ascii += 3;
+                  }
+                  char newChar = (char)ascii;
+                  encryptedWord += newChar;
+              } else {
+                  encryptedWord += ' ';
+              }
+          }
+          return encryptedWord;
       }
 }
